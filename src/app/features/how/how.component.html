@@ -1,0 +1,45 @@
+<section class="px-4 md:px-8 py-14 md:py-20">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-14">
+      <h1 class="font-heading text-4xl md:text-5xl font-semibold mb-4">{{ 'how.title' | trans }}</h1>
+      <p class="text-ck-negro/60 text-lg">{{ 'how.sub' | trans }}</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+      <div>
+        <h2 class="font-heading text-2xl font-semibold mb-3">{{ 'how.step1.title' | trans }}</h2>
+        <p class="text-ck-negro/60 leading-relaxed">{{ 'how.step1.desc' | trans }}</p>
+      </div>
+      <div>
+        <h2 class="font-heading text-2xl font-semibold mb-3">{{ 'how.step2.title' | trans }}</h2>
+        <p class="text-ck-negro/60 leading-relaxed">{{ 'how.step2.desc' | trans }}</p>
+      </div>
+      <div>
+        <h2 class="font-heading text-2xl font-semibold mb-3">{{ 'how.step3.title' | trans }}</h2>
+        <p class="text-ck-negro/60 leading-relaxed">{{ 'how.step3.desc' | trans }}</p>
+      </div>
+    </div>
+
+    <div class="border-t border-black/10 pt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h3 class="font-heading text-xl font-semibold mb-5">{{ 'how.note.title' | trans }}</h3>
+        <ul class="space-y-3">
+          @for (note of notes; track note) {
+            <li class="flex items-start gap-3 text-sm text-ck-negro/65">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-ck-madera shrink-0"></span>
+              {{ note | trans }}
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="md:justify-self-end">
+        <a
+          routerLink="/contacto"
+          class="btn-primary inline-flex items-center px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.14em]"
+        >
+          {{ 'how.cta' | trans }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

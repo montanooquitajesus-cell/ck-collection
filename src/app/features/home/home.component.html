@@ -1,0 +1,173 @@
+<!-- Hero with image carousel -->
+<section class="hero-stage">
+  <div class="hero-carousel" aria-hidden="true">
+    @for (dress of carousel; track dress.id; let i = $index) {
+      <div class="hero-slide" [class.is-active]="slideIndex() === i">
+        <img [src]="dress.image" [alt]="dress.name" />
+      </div>
+    }
+  </div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 pb-14 md:pb-20 pt-20 md:pt-28">
+    <div class="max-w-xl">
+      <img
+        src="assets/ck_logo.png"
+        alt="CK Collection"
+        class="h-20 md:h-24 w-auto object-contain mb-8 animate-fade-up"
+      />
+      <p
+        class="text-xs font-semibold uppercase tracking-[0.28em] text-ck-negro/55 mb-4 animate-fade-up"
+      >
+        {{ 'home.city' | trans }}
+      </p>
+      <h1
+        class="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] text-ck-negro mb-5 animate-fade-up-delay"
+      >
+        {{ 'home.headline' | trans }}
+      </h1>
+      <p
+        class="text-base md:text-lg text-ck-negro/65 max-w-xl mb-8 leading-relaxed animate-fade-up-delay-2"
+      >
+        {{ 'home.sub' | trans }}
+      </p>
+      <div class="flex flex-wrap gap-3 mb-8 animate-fade-up-delay-2">
+        <a
+          routerLink="/coleccion"
+          class="btn-primary inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.14em]"
+        >
+          {{ 'home.cta.primary' | trans }}
+        </a>
+        <a
+          routerLink="/como-rentar"
+          class="btn-outline inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.14em] bg-ck-yeso/50"
+        >
+          {{ 'home.cta.secondary' | trans }}
+        </a>
+      </div>
+
+      <div class="flex items-center gap-4 animate-fade-up-delay-2">
+        <button type="button" class="btn-outline p-2 rounded-full cursor-pointer" (click)="prevSlide()" aria-label="Anterior">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <div class="hero-dots">
+          @for (dress of carousel; track dress.id; let i = $index) {
+            <button
+              type="button"
+              class="hero-dot"
+              [class.is-active]="slideIndex() === i"
+              (click)="goToSlide(i)"
+              [attr.aria-label]="'Slide ' + (i + 1)"
+            ></button>
+          }
+        </div>
+        <button type="button" class="btn-outline p-2 rounded-full cursor-pointer" (click)="nextSlide()" aria-label="Siguiente">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="px-4 md:px-8 py-20 md:py-28">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-xl mb-12">
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-3">
+        {{ 'home.how.title' | trans }}
+      </h2>
+      <p class="text-ck-negro/60">{{ 'home.how.sub' | trans }}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+      <div>
+        <p class="font-heading text-ck-madera text-sm font-bold tracking-[0.2em] uppercase mb-3">
+          01
+        </p>
+        <h3 class="font-heading text-xl font-semibold mb-2">{{ 'home.how.1.title' | trans }}</h3>
+        <p class="text-sm text-ck-negro/60 leading-relaxed">{{ 'home.how.1.desc' | trans }}</p>
+      </div>
+      <div>
+        <p class="font-heading text-ck-madera text-sm font-bold tracking-[0.2em] uppercase mb-3">
+          02
+        </p>
+        <h3 class="font-heading text-xl font-semibold mb-2">{{ 'home.how.2.title' | trans }}</h3>
+        <p class="text-sm text-ck-negro/60 leading-relaxed">{{ 'home.how.2.desc' | trans }}</p>
+      </div>
+      <div>
+        <p class="font-heading text-ck-madera text-sm font-bold tracking-[0.2em] uppercase mb-3">
+          03
+        </p>
+        <h3 class="font-heading text-xl font-semibold mb-2">{{ 'home.how.3.title' | trans }}</h3>
+        <p class="text-sm text-ck-negro/60 leading-relaxed">{{ 'home.how.3.desc' | trans }}</p>
+      </div>
+    </div>
+    <div class="divider-soft mt-12"></div>
+  </div>
+</section>
+
+<!-- Featured -->
+<section class="px-4 md:px-8 pb-20 md:pb-28">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div>
+        <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-2">
+          {{ 'home.featured.title' | trans }}
+        </h2>
+        <p class="text-ck-negro/60">{{ 'home.featured.sub' | trans }}</p>
+      </div>
+      <a
+        routerLink="/coleccion"
+        class="text-sm font-semibold text-ck-negro hover:text-ck-madera underline-offset-4 hover:underline"
+      >
+        {{ 'home.featured.cta' | trans }} →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (dress of featured; track dress.id) {
+        <a [routerLink]="['/coleccion', dress.id]" class="dress-tile group block">
+          <div class="dress-tile-media">
+            <img [src]="dress.image" [alt]="dressName(dress.id)" loading="lazy" />
+            <div class="dress-tile-caption">
+              <p class="font-heading text-2xl font-semibold mb-1">{{ dressName(dress.id) }}</p>
+              <p class="text-sm text-white/85">{{ dressTagline(dress.id) }}</p>
+            </div>
+          </div>
+          <div class="py-4 flex items-center justify-between border-b border-black/10 px-1">
+            <span class="text-sm text-ck-negro/55">
+              {{ 'collection.from' | trans }} ${{ dress.price | number }}
+              {{ 'collection.days' | trans }}
+            </span>
+            <span class="text-xs font-bold uppercase tracking-wider text-ck-negro">
+              {{ 'collection.view' | trans }}
+            </span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Occasions -->
+<section class="px-4 md:px-8 pb-24">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-xl mb-10">
+      <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-2">
+        {{ 'home.occasions.title' | trans }}
+      </h2>
+      <p class="text-ck-negro/60">{{ 'home.occasions.sub' | trans }}</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      @for (o of occasions; track o.key) {
+        <a
+          [routerLink]="o.path"
+          [queryParams]="{ ocasion: o.key }"
+          class="block py-8 px-5 bg-ck-arena/50 border border-black/8 hover:border-ck-madera/60 transition-colors"
+        >
+          <p class="font-heading text-xl font-semibold mb-2">{{ o.labelKey | trans }}</p>
+          <p class="text-xs text-ck-negro/45 tracking-wide">{{ o.hint }}</p>
+        </a>
+      }
+    </div>
+  </div>
+</section>

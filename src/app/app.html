@@ -1,0 +1,130 @@
+<div class="page-bg flex flex-col min-h-screen relative text-ck-negro overflow-x-hidden">
+  <header class="site-header sticky top-0 w-full py-3 px-4 md:px-8 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <a routerLink="/" (click)="closeMenu()" class="flex items-center gap-3 group shrink-0">
+        <img
+          src="assets/ck_logo.png"
+          alt="CK Collection — Renta de vestidos"
+          class="h-12 md:h-14 w-auto object-contain"
+        />
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        @for (link of navLinks; track link.path) {
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="text-ck-madera"
+            class="px-3 py-2 text-sm font-medium text-ck-negro/65 hover:text-ck-negro transition-colors tracking-wide"
+          >
+            {{ link.labelKey | trans }}
+          </a>
+        }
+      </nav>
+
+      <div class="flex items-center gap-2 md:gap-3">
+        <button
+          type="button"
+          (click)="toggleLanguage()"
+          class="btn-outline px-2.5 py-1.5 rounded-full text-xs font-semibold cursor-pointer"
+        >
+          {{ langService.currentLang() === 'es' ? 'EN' : 'ES' }}
+        </button>
+
+        <a
+          routerLink="/contacto"
+          class="btn-primary hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.14em]"
+        >
+          {{ 'nav.cta' | trans }}
+        </a>
+
+        <button
+          type="button"
+          (click)="toggleMenu()"
+          class="btn-outline p-2 rounded-full cursor-pointer md:hidden"
+          aria-label="Menú"
+        >
+          <i class="bi bi-list text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    @if (isMenuOpen()) {
+      <div class="md:hidden mt-3 rounded-2xl border border-black/10 bg-ck-yeso/95 p-3 shadow-lg">
+        <nav class="flex flex-col gap-1">
+          @for (link of navLinks; track link.path) {
+            <a
+              [routerLink]="link.path"
+              (click)="closeMenu()"
+              class="px-4 py-3 rounded-xl text-sm font-medium hover:bg-ck-arena/70"
+            >
+              {{ link.labelKey | trans }}
+            </a>
+          }
+          <a
+            routerLink="/contacto"
+            (click)="closeMenu()"
+            class="btn-primary mt-1 text-center px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-[0.14em]"
+          >
+            {{ 'nav.cta' | trans }}
+          </a>
+        </nav>
+      </div>
+    }
+  </header>
+
+  <main class="flex-grow flex flex-col relative z-10 w-full">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="w-full py-12 mt-auto border-t border-black/10 relative z-10 bg-ck-arena/40">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <div>
+        <img src="assets/ck_logo.png" alt="CK Collection" class="h-16 w-auto object-contain mb-3" />
+        <p class="text-sm text-ck-negro/60 max-w-xs">{{ 'footer.tagline' | trans }}</p>
+      </div>
+
+      <div class="text-sm space-y-2 text-ck-negro/70">
+        <p class="font-heading text-lg text-ck-negro font-semibold mb-2">
+          {{ 'footer.location' | trans }}
+        </p>
+        <p>Zapateros #25, Col. Y Griega</p>
+        <p>Hermosillo, Sonora</p>
+        <a href="tel:+526621833771" class="block hover:text-ck-negro pt-1">662 183 3771</a>
+        <a href="tel:+526621157753" class="block hover:text-ck-negro">662 115 7753</a>
+      </div>
+
+      <div class="flex md:justify-end gap-5 text-ck-negro/70">
+        <a
+          href="https://wa.me/526621833771"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-ck-negro"
+          aria-label="WhatsApp"
+        >
+          <i class="bi bi-whatsapp text-xl"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/ck_collectioon"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-ck-negro"
+          aria-label="Instagram"
+        >
+          <i class="bi bi-instagram text-xl"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/search/top?q=CK%20Collectioon"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-ck-negro"
+          aria-label="Facebook"
+        >
+          <i class="bi bi-facebook text-xl"></i>
+        </a>
+      </div>
+    </div>
+    <p class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-black/8 text-xs text-ck-negro/45">
+      {{ 'common.rights' | trans }}
+    </p>
+  </footer>
+</div>
