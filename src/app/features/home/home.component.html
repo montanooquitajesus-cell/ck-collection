@@ -170,7 +170,7 @@
       @for (massage of featuredMassages; track massage.id) {
         <a [routerLink]="['/masajes', massage.id]" class="dress-tile group block">
           <div class="dress-tile-media">
-            <img [src]="massage.image" [alt]="massageName(massage.id)" loading="lazy" />
+            <img [src]="massage.image" [alt]="massageName(massage.id)" class="object-center" loading="lazy" />
             <div class="dress-tile-caption">
               <p class="font-heading text-2xl font-semibold mb-1">{{ massageName(massage.id) }}</p>
               <p class="text-sm text-white/85">{{ massageTagline(massage.id) }}</p>
