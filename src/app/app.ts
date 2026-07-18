@@ -15,6 +15,7 @@ export class App {
 
   readonly navLinks = [
     { path: '/coleccion', labelKey: 'nav.collection' },
+    { path: '/masajes', labelKey: 'nav.massages' },
     { path: '/como-rentar', labelKey: 'nav.how' },
     { path: '/contacto', labelKey: 'nav.contact' },
   ];

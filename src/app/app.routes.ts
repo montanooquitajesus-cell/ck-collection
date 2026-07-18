@@ -16,6 +16,18 @@ export const routes: Routes = [
       import('./features/dress-detail/dress-detail.component').then((m) => m.DressDetailComponent),
   },
   {
+    path: 'masajes',
+    loadComponent: () =>
+      import('./features/massages/massages.component').then((m) => m.MassagesComponent),
+  },
+  {
+    path: 'masajes/:id',
+    loadComponent: () =>
+      import('./features/massage-detail/massage-detail.component').then(
+        (m) => m.MassageDetailComponent
+      ),
+  },
+  {
     path: 'como-rentar',
     loadComponent: () => import('./features/how/how.component').then((m) => m.HowComponent),
   },

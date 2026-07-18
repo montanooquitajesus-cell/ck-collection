@@ -1,0 +1,58 @@
+<section class="px-4 md:px-8 py-14 md:py-20">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-10">
+      <h1 class="font-heading text-4xl md:text-5xl font-semibold mb-3">
+        {{ 'massages.title' | trans }}
+      </h1>
+      <p class="text-ck-negro/60 text-base md:text-lg">{{ 'massages.sub' | trans }}</p>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-10">
+      @for (c of categories; track c.id) {
+        <a
+          [routerLink]="[]"
+          [queryParams]="c.id === 'all' ? {} : { categoria: c.id }"
+          (click)="setFilter(c.id)"
+          class="px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] border transition-colors cursor-pointer"
+          [class.bg-ck-negro]="activeFilter() === c.id"
+          [class.text-[#f7f3ee]]="activeFilter() === c.id"
+          [class.border-ck-negro]="activeFilter() === c.id"
+          [class.border-black/15]="activeFilter() !== c.id"
+          [class.text-ck-negro/60]="activeFilter() !== c.id"
+        >
+          {{ c.labelKey | trans }}
+        </a>
+      }
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (massage of massages(); track massage.id) {
+        <a [routerLink]="['/masajes', massage.id]" class="dress-tile block group">
+          <div class="dress-tile-media">
+            <img
+              [src]="massage.image"
+              [alt]="massageName(massage.name, massage.nameEn)"
+              loading="lazy"
+            />
+            <div class="dress-tile-caption">
+              <p class="font-heading text-2xl font-semibold mb-1">
+                {{ massageName(massage.name, massage.nameEn) }}
+              </p>
+              <p class="text-sm text-white/85">
+                {{ massageTagline(massage.tagline, massage.taglineEn) }}
+              </p>
+            </div>
+          </div>
+          <div class="py-4 flex items-center justify-between border-b border-black/10 px-1">
+            <span class="text-sm text-ck-negro/55">
+              {{ massage.durationMin }} {{ 'massages.min' | trans }} · ${{ massage.price | number }}
+            </span>
+            <span class="text-xs font-bold uppercase tracking-wider text-ck-negro">
+              {{ 'massages.view' | trans }}
+            </span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>

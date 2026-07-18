@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 import { LanguageService } from '../../core/services/language.service';
 import { DRESSES } from '../../core/data/dresses';
+import { MASSAGES } from '../../core/data/massages';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   readonly lang = inject(LanguageService);
   readonly featured = DRESSES.slice(0, 3);
+  readonly featuredMassages = MASSAGES.slice(0, 3);
   readonly carousel = DRESSES;
   readonly slideIndex = signal(0);
 
@@ -65,5 +67,15 @@ export class HomeComponent implements OnInit {
   dressTagline(id: string): string {
     const d = this.featured.find((x) => x.id === id)!;
     return this.lang.currentLang() === 'en' ? d.taglineEn : d.tagline;
+  }
+
+  massageName(id: string): string {
+    const m = this.featuredMassages.find((x) => x.id === id)!;
+    return this.lang.currentLang() === 'en' ? m.nameEn : m.name;
+  }
+
+  massageTagline(id: string): string {
+    const m = this.featuredMassages.find((x) => x.id === id)!;
+    return this.lang.currentLang() === 'en' ? m.taglineEn : m.tagline;
   }
 }

@@ -3,19 +3,21 @@ export type TranslationMap = Record<string, string>;
 export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
   es: {
     'common.rights': '© CK Collection. Hermosillo, Sonora. Todos los derechos reservados.',
-    'footer.tagline': 'Renta de vestidos en Hermosillo. Elegancia para cada ocasión.',
+    'footer.tagline':
+      'Renta de vestidos y masajes en Hermosillo. Estilo y bienestar en un solo lugar.',
     'footer.location': 'Hermosillo',
     'nav.collection': 'Colección',
+    'nav.massages': 'Masajes',
     'nav.how': 'Cómo rentar',
     'nav.contact': 'Contacto',
     'nav.cta': 'Agendar cita',
 
     'home.city': 'Hermosillo, Sonora',
-    'home.headline': 'Luce espectacular. Sin comprarlo.',
+    'home.headline': 'Estilo y bienestar. En un solo lugar.',
     'home.sub':
-      'Renta de vestidos en Hermosillo para bodas, XV, galas y noches que merecen recordarse.',
+      'Renta de vestidos para cada ocasión y masajes para recuperar el cuerpo. Agenda tu cita en Hermosillo.',
     'home.cta.primary': 'Ver colección',
-    'home.cta.secondary': 'Cómo funciona',
+    'home.cta.secondary': 'Ver masajes',
 
     'home.how.title': 'Cómo rentar',
     'home.how.sub': 'Un proceso simple, pensado para que solo te preocupes por brillar.',
@@ -30,6 +32,10 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'home.featured.sub': 'Selección curada para esta temporada en Hermosillo.',
     'home.featured.cta': 'Ver toda la colección',
 
+    'home.massages.title': 'Masajes destacados',
+    'home.massages.sub': 'Sesiones pensadas para soltar tensión y recuperar calma.',
+    'home.massages.cta': 'Ver todos los masajes',
+
     'home.occasions.title': 'Para cada momento',
     'home.occasions.sub': 'Looks pensados para la ocasión exacta.',
 
@@ -43,6 +49,22 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'collection.from': 'Desde',
     'collection.days': '/ 4 días',
     'collection.view': 'Ver detalle',
+
+    'massages.title': 'Masajes',
+    'massages.sub':
+      'Sesiones de bienestar en Hermosillo. Elige tu servicio y agenda por WhatsApp.',
+    'massages.filter.all': 'Todos',
+    'massages.filter.relaxing': 'Relajantes',
+    'massages.filter.therapeutic': 'Terapéuticos',
+    'massages.filter.specialty': 'Especiales',
+    'massages.min': 'min',
+    'massages.view': 'Ver detalle',
+
+    'massage.detail.back': 'Volver a masajes',
+    'massage.detail.category': 'Tipo',
+    'massage.detail.includes': 'Incluye consulta breve previa y espacio privado por cita.',
+    'massage.detail.book': 'Agendar por WhatsApp',
+    'massage.detail.notFound': 'Servicio no encontrado.',
 
     'how.title': 'Cómo funciona',
     'how.sub': 'Rentar con CK Collection en Hermosillo es fácil, transparente y sin sorpresas.',
@@ -64,8 +86,9 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
 
     'contact.title': 'Visítanos en Hermosillo',
     'contact.sub':
-      'Cuéntanos la fecha y el look que buscas. Escríbenos por WhatsApp o agenda tu cita en el showroom.',
+      '¿Renta de vestido o masaje? Escríbenos por WhatsApp o agenda tu cita en el showroom.',
     'contact.whatsapp': 'Escribir por WhatsApp',
+    'contact.whatsapp.massage': 'Agendar masaje',
     'contact.phones': 'Teléfonos',
     'contact.showroom': 'Showroom',
     'contact.showroom.hours': 'Citas previas · Lun–Sáb',
@@ -76,11 +99,18 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'contact.faq.1.q': '¿Cuánto dura la renta?',
     'contact.faq.1.a': 'Normalmente de 3 a 5 días. Podemos ajustar según tu evento.',
     'contact.faq.2.q': '¿Qué pasa si no me queda?',
-    'contact.faq.2.a': 'Agenda una prueba en Hermosillo. Si hace falta, te ayudamos a cambiar de talla o de modelo.',
+    'contact.faq.2.a':
+      'Agenda una prueba en Hermosillo. Si hace falta, te ayudamos a cambiar de talla o de modelo.',
     'contact.faq.3.q': '¿Hay depósito?',
     'contact.faq.3.a': 'Sí, un depósito reembolsable al devolver el vestido en buen estado.',
     'contact.faq.4.q': '¿Puedo rentar accesorios?',
     'contact.faq.4.a': 'Sí: clutch, joyería y piezas complementarias según disponibilidad.',
+    'contact.faq.5.q': '¿Cómo agendo un masaje?',
+    'contact.faq.5.a':
+      'Elige el servicio en la sección Masajes y escríbenos por WhatsApp con tu horario preferido.',
+    'contact.faq.6.q': '¿Los masajes son con cita previa?',
+    'contact.faq.6.a':
+      'Sí. Todas las sesiones son por cita para garantizar espacio privado y atención personalizada.',
 
     'detail.back': 'Volver a colección',
     'detail.rent': 'Consultar disponibilidad',
@@ -90,19 +120,21 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
   },
   en: {
     'common.rights': '© CK Collection. Hermosillo, Sonora. All rights reserved.',
-    'footer.tagline': 'Dress rentals in Hermosillo. Elegance for every occasion.',
+    'footer.tagline':
+      'Dress rentals and massage in Hermosillo. Style and wellbeing in one place.',
     'footer.location': 'Hermosillo',
     'nav.collection': 'Collection',
+    'nav.massages': 'Massage',
     'nav.how': 'How it works',
     'nav.contact': 'Contact',
     'nav.cta': 'Book appointment',
 
     'home.city': 'Hermosillo, Sonora',
-    'home.headline': 'Look spectacular. Without buying it.',
+    'home.headline': 'Style and wellbeing. In one place.',
     'home.sub':
-      'Dress rentals in Hermosillo for weddings, quinceañeras, galas, and nights worth remembering.',
+      'Dress rentals for every occasion and massage to restore the body. Book your appointment in Hermosillo.',
     'home.cta.primary': 'Browse collection',
-    'home.cta.secondary': 'How it works',
+    'home.cta.secondary': 'Browse massage',
 
     'home.how.title': 'How renting works',
     'home.how.sub': 'A simple process so you only worry about shining.',
@@ -117,6 +149,10 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'home.featured.sub': 'A curated selection for this season in Hermosillo.',
     'home.featured.cta': 'See full collection',
 
+    'home.massages.title': 'Featured massage',
+    'home.massages.sub': 'Sessions designed to release tension and restore calm.',
+    'home.massages.cta': 'See all massage services',
+
     'home.occasions.title': 'For every moment',
     'home.occasions.sub': 'Looks designed for the exact occasion.',
 
@@ -130,6 +166,22 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'collection.from': 'From',
     'collection.days': '/ 4 days',
     'collection.view': 'View details',
+
+    'massages.title': 'Massage',
+    'massages.sub':
+      'Wellness sessions in Hermosillo. Choose a service and book on WhatsApp.',
+    'massages.filter.all': 'All',
+    'massages.filter.relaxing': 'Relaxing',
+    'massages.filter.therapeutic': 'Therapeutic',
+    'massages.filter.specialty': 'Specialty',
+    'massages.min': 'min',
+    'massages.view': 'View details',
+
+    'massage.detail.back': 'Back to massage',
+    'massage.detail.category': 'Type',
+    'massage.detail.includes': 'Includes a brief pre-session check-in and a private appointment space.',
+    'massage.detail.book': 'Book on WhatsApp',
+    'massage.detail.notFound': 'Service not found.',
 
     'how.title': 'How it works',
     'how.sub': 'Renting with CK Collection in Hermosillo is easy, clear, and surprise-free.',
@@ -151,8 +203,9 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
 
     'contact.title': 'Visit us in Hermosillo',
     'contact.sub':
-      'Tell us the date and the look you want. Message us on WhatsApp or book a showroom appointment.',
+      'Dress rental or massage? Message us on WhatsApp or book a showroom appointment.',
     'contact.whatsapp': 'Message on WhatsApp',
+    'contact.whatsapp.massage': 'Book a massage',
     'contact.phones': 'Phones',
     'contact.showroom': 'Showroom',
     'contact.showroom.hours': 'By appointment · Mon–Sat',
@@ -163,11 +216,18 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'contact.faq.1.q': 'How long is the rental?',
     'contact.faq.1.a': 'Usually 3 to 5 days. We can adjust based on your event.',
     'contact.faq.2.q': 'What if it doesn’t fit?',
-    'contact.faq.2.a': 'Book a fitting in Hermosillo. If needed, we’ll help you change size or style.',
+    'contact.faq.2.a':
+      'Book a fitting in Hermosillo. If needed, we’ll help you change size or style.',
     'contact.faq.3.q': 'Is there a deposit?',
     'contact.faq.3.a': 'Yes — a refundable deposit when the dress is returned in good condition.',
     'contact.faq.4.q': 'Can I rent accessories?',
     'contact.faq.4.a': 'Yes: clutches, jewelry, and complementary pieces based on availability.',
+    'contact.faq.5.q': 'How do I book a massage?',
+    'contact.faq.5.a':
+      'Pick a service in Massage and message us on WhatsApp with your preferred time.',
+    'contact.faq.6.q': 'Are massages by appointment?',
+    'contact.faq.6.a':
+      'Yes. Every session is appointment-only so we can guarantee a private space and focused care.',
 
     'detail.back': 'Back to collection',
     'detail.rent': 'Check availability',

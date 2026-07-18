@@ -38,7 +38,7 @@
           {{ 'home.cta.primary' | trans }}
         </a>
         <a
-          routerLink="/como-rentar"
+          routerLink="/masajes"
           class="btn-outline inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.14em] bg-ck-yeso/50"
         >
           {{ 'home.cta.secondary' | trans }}
@@ -105,7 +105,7 @@
   </div>
 </section>
 
-<!-- Featured -->
+<!-- Featured dresses -->
 <section class="px-4 md:px-8 pb-20 md:pb-28">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
@@ -140,6 +140,48 @@
             </span>
             <span class="text-xs font-bold uppercase tracking-wider text-ck-negro">
               {{ 'collection.view' | trans }}
+            </span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Featured massages -->
+<section class="px-4 md:px-8 pb-20 md:pb-28">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div>
+        <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-2">
+          {{ 'home.massages.title' | trans }}
+        </h2>
+        <p class="text-ck-negro/60">{{ 'home.massages.sub' | trans }}</p>
+      </div>
+      <a
+        routerLink="/masajes"
+        class="text-sm font-semibold text-ck-negro hover:text-ck-madera underline-offset-4 hover:underline"
+      >
+        {{ 'home.massages.cta' | trans }} →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (massage of featuredMassages; track massage.id) {
+        <a [routerLink]="['/masajes', massage.id]" class="dress-tile group block">
+          <div class="dress-tile-media">
+            <img [src]="massage.image" [alt]="massageName(massage.id)" loading="lazy" />
+            <div class="dress-tile-caption">
+              <p class="font-heading text-2xl font-semibold mb-1">{{ massageName(massage.id) }}</p>
+              <p class="text-sm text-white/85">{{ massageTagline(massage.id) }}</p>
+            </div>
+          </div>
+          <div class="py-4 flex items-center justify-between border-b border-black/10 px-1">
+            <span class="text-sm text-ck-negro/55">
+              {{ massage.durationMin }} {{ 'massages.min' | trans }} · ${{ massage.price | number }}
+            </span>
+            <span class="text-xs font-bold uppercase tracking-wider text-ck-negro">
+              {{ 'massages.view' | trans }}
             </span>
           </div>
         </a>
