@@ -9,7 +9,7 @@
   </div>
 
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 pb-14 md:pb-20 pt-20 md:pt-28">
-    <div class="max-w-xl">
+    <div class="max-w-xl glass-hero p-6 md:p-8">
       <img
         src="assets/ck_logo.png"
         alt="CK Collection"
@@ -39,7 +39,7 @@
         </a>
         <a
           routerLink="/masajes"
-          class="btn-outline inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.14em] bg-ck-yeso/50"
+          class="btn-outline inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.14em]"
         >
           {{ 'home.cta.secondary' | trans }}
         </a>
@@ -70,7 +70,7 @@
 
 <!-- How it works -->
 <section class="px-4 md:px-8 py-20 md:py-28">
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="max-w-xl mb-12">
       <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-3">
         {{ 'home.how.title' | trans }}
@@ -78,9 +78,9 @@
       <p class="text-ck-negro/60">{{ 'home.how.sub' | trans }}</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5">
       @for (step of howSteps; track step.titleKey; let i = $index) {
-        <div>
+        <div class="glass-panel p-6">
           <div class="how-home-icon" aria-hidden="true">
             <i class="bi {{ step.icon }}"></i>
           </div>
@@ -92,13 +92,12 @@
         </div>
       }
     </div>
-    <div class="divider-soft mt-12"></div>
   </div>
 </section>
 
 <!-- Featured dresses -->
 <section class="px-4 md:px-8 pb-20 md:pb-28">
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
       <div>
         <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-2">
@@ -124,7 +123,7 @@
               <p class="text-sm text-white/85">{{ dressTagline(dress.id) }}</p>
             </div>
           </div>
-          <div class="py-4 flex items-center justify-between border-b border-black/10 px-1">
+          <div class="py-4 flex items-center justify-between px-3">
             <span class="text-sm text-ck-negro/55">
               {{ 'collection.from' | trans }} ${{ dress.price | number }}
             </span>
@@ -140,7 +139,7 @@
 
 <!-- Featured massages -->
 <section class="px-4 md:px-8 pb-20 md:pb-28">
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
       <div>
         <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-2">
@@ -166,7 +165,7 @@
               <p class="text-sm text-white/85">{{ massageTagline(massage.id) }}</p>
             </div>
           </div>
-          <div class="py-4 flex items-center justify-between border-b border-black/10 px-1">
+          <div class="py-4 flex items-center justify-between px-3">
             <span class="text-sm text-ck-negro/55">
               {{ massage.durationMin }} {{ 'massages.min' | trans }} · ${{ massage.price | number }}
             </span>
@@ -182,19 +181,19 @@
 
 <!-- Occasions -->
 <section class="px-4 md:px-8 pb-24">
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="max-w-xl mb-10">
       <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-2">
         {{ 'home.occasions.title' | trans }}
       </h2>
       <p class="text-ck-negro/60">{{ 'home.occasions.sub' | trans }}</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       @for (o of occasions; track o.key) {
         <a
           [routerLink]="o.path"
           [queryParams]="{ ocasion: o.key }"
-          class="block py-8 px-5 bg-ck-arena/50 border border-black/8 hover:border-ck-madera/60 transition-colors"
+          class="glass-chip block py-8 px-5 rounded-2xl"
         >
           <p class="font-heading text-xl font-semibold mb-2">{{ o.labelKey | trans }}</p>
           <p class="text-xs text-ck-negro/45 tracking-wide">{{ o.hint }}</p>

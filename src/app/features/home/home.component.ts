@@ -28,17 +28,10 @@ export class HomeComponent implements OnInit {
 
   readonly occasions = [
     {
-      key: 'wedding',
-      labelKey: 'collection.filter.wedding',
-      path: '/coleccion',
-      hint: 'Consulta disponibilidad',
-    },
-    { key: 'xv', labelKey: 'collection.filter.xv', path: '/coleccion', hint: 'Medianoche · Sol' },
-    {
       key: 'gala',
       labelKey: 'collection.filter.gala',
       path: '/coleccion',
-      hint: 'Zafiro · Nocturna',
+      hint: 'Zafiro · Nocturna · Sol',
     },
     {
       key: 'cocktail',

@@ -8,16 +8,16 @@
     </a>
 
     @if (massage(); as m) {
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-        <div class="aspect-[3/4] w-full overflow-hidden bg-ck-linen">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+        <div class="aspect-[3/4] w-full overflow-hidden rounded-2xl bg-ck-linen glass-panel p-2">
           <img
             [src]="m.image"
             [alt]="name()"
-            class="w-full h-full object-cover object-center"
+            class="w-full h-full object-cover object-center rounded-xl"
           />
         </div>
 
-        <div class="lg:pt-6">
+        <div class="glass-panel p-6 md:p-8 lg:pt-8">
           <p class="text-xs font-bold uppercase tracking-[0.18em] text-ck-madera mb-3">
             {{ 'massage.detail.category' | trans }} · {{ categoryKey() | trans }}
           </p>

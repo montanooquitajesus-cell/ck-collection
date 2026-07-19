@@ -49,13 +49,13 @@
     </div>
 
     @if (isMenuOpen()) {
-      <div class="md:hidden mt-3 rounded-2xl border border-black/10 bg-ck-yeso/95 p-3 shadow-lg">
+      <div class="md:hidden mt-3 rounded-2xl glass-panel p-3">
         <nav class="flex flex-col gap-1">
           @for (link of navLinks; track link.path) {
             <a
               [routerLink]="link.path"
               (click)="closeMenu()"
-              class="px-4 py-3 rounded-xl text-sm font-medium hover:bg-ck-arena/70"
+              class="px-4 py-3 rounded-xl text-sm font-medium hover:bg-white/30"
             >
               {{ link.labelKey | trans }}
             </a>
@@ -76,7 +76,7 @@
     <router-outlet></router-outlet>
   </main>
 
-  <footer class="w-full py-12 mt-auto border-t border-black/10 relative z-10 bg-ck-arena/40">
+  <footer class="glass-footer w-full py-12 mt-auto relative z-10">
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
       <div>
         <img src="assets/ck_logo.png" alt="CK Collection" class="h-16 w-auto object-contain mb-3" />

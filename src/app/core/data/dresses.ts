@@ -1,4 +1,4 @@
-export type DressOccasion = 'wedding' | 'xv' | 'gala' | 'cocktail';
+export type DressOccasion = 'gala' | 'cocktail';
 
 export interface Dress {
   id: string;
@@ -87,7 +87,7 @@ export const DRESSES: Dress[] = [
     id: 'medianoche',
     name: 'Medianoche',
     nameEn: 'Midnight',
-    occasion: 'xv',
+    occasion: 'gala',
     price: 2090,
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
     tone: '#1a2744',
@@ -100,7 +100,7 @@ export const DRESSES: Dress[] = [
     id: 'sol',
     name: 'Sol',
     nameEn: 'Sol',
-    occasion: 'xv',
+    occasion: 'gala',
     price: 1990,
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tone: '#e8b84a',
@@ -126,8 +126,6 @@ export const DRESSES: Dress[] = [
 
 export const OCCASIONS: { id: DressOccasion | 'all'; labelKey: string }[] = [
   { id: 'all', labelKey: 'collection.filter.all' },
-  { id: 'wedding', labelKey: 'collection.filter.wedding' },
-  { id: 'xv', labelKey: 'collection.filter.xv' },
   { id: 'gala', labelKey: 'collection.filter.gala' },
   { id: 'cocktail', labelKey: 'collection.filter.cocktail' },
 ];

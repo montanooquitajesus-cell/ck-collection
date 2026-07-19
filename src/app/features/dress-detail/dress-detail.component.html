@@ -8,16 +8,16 @@
     </a>
 
     @if (dress(); as d) {
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-        <div class="aspect-[3/4] w-full overflow-hidden bg-ck-linen">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+        <div class="aspect-[3/4] w-full overflow-hidden rounded-2xl bg-ck-linen glass-panel p-2">
           <img
             [src]="d.image"
             [alt]="name()"
-            class="w-full h-full object-cover object-top"
+            class="w-full h-full object-cover object-top rounded-xl"
           />
         </div>
 
-        <div class="lg:pt-6">
+        <div class="glass-panel p-6 md:p-8 lg:pt-8">
           <p class="text-xs font-bold uppercase tracking-[0.18em] text-ck-madera mb-3">
             {{ 'detail.occasion' | trans }} · {{ occasionKey() | trans }}
           </p>
@@ -41,12 +41,8 @@
                 <button
                   type="button"
                   (click)="setDays(days)"
-                  class="min-w-12 px-3 py-2 text-center text-sm border transition-colors cursor-pointer"
-                  [class.bg-ck-negro]="selectedDays() === days"
-                  [class.text-[#f7f3ee]]="selectedDays() === days"
-                  [class.border-ck-negro]="selectedDays() === days"
-                  [class.border-black/15]="selectedDays() !== days"
-                  [class.text-ck-negro]="selectedDays() !== days"
+                  class="filter-chip min-w-12"
+                  [class.is-active]="selectedDays() === days"
                 >
                   {{ days }}
                 </button>
@@ -64,12 +60,8 @@
                 <button
                   type="button"
                   (click)="setSize(size)"
-                  class="min-w-12 px-3 py-2 text-center text-sm border transition-colors cursor-pointer"
-                  [class.bg-ck-negro]="selectedSize() === size"
-                  [class.text-[#f7f3ee]]="selectedSize() === size"
-                  [class.border-ck-negro]="selectedSize() === size"
-                  [class.border-black/15]="selectedSize() !== size"
-                  [class.text-ck-negro]="selectedSize() !== size"
+                  class="filter-chip min-w-12"
+                  [class.is-active]="selectedSize() === size"
                 >
                   {{ size }}
                 </button>

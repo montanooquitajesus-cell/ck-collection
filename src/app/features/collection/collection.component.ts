@@ -28,12 +28,7 @@ export class CollectionComponent {
   readonly dresses = computed(() => {
     const fromQuery = this.queryOccasion();
     const filter =
-      fromQuery === 'wedding' ||
-      fromQuery === 'xv' ||
-      fromQuery === 'gala' ||
-      fromQuery === 'cocktail'
-        ? fromQuery
-        : this.selected();
+      fromQuery === 'gala' || fromQuery === 'cocktail' ? fromQuery : this.selected();
 
     if (filter === 'all') return DRESSES;
     return DRESSES.filter((d) => d.occasion === filter);
@@ -41,12 +36,7 @@ export class CollectionComponent {
 
   readonly activeFilter = computed(() => {
     const fromQuery = this.queryOccasion();
-    if (
-      fromQuery === 'wedding' ||
-      fromQuery === 'xv' ||
-      fromQuery === 'gala' ||
-      fromQuery === 'cocktail'
-    ) {
+    if (fromQuery === 'gala' || fromQuery === 'cocktail') {
       return fromQuery;
     }
     return this.selected();

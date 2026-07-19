@@ -1,13 +1,13 @@
 <section class="px-4 md:px-8 py-14 md:py-20">
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="max-w-2xl mb-14">
       <h1 class="font-heading text-4xl md:text-5xl font-semibold mb-4">{{ 'how.title' | trans }}</h1>
       <p class="text-ck-negro/60 text-lg">{{ 'how.sub' | trans }}</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8 mb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
       @for (step of steps; track step.titleKey; let i = $index) {
-        <article class="group">
+        <article class="group glass-panel p-4 md:p-5">
           <div class="how-step-media mb-6">
             <img [src]="step.image" [alt]="step.titleKey | trans" loading="lazy" />
             <div class="how-step-icon" aria-hidden="true">
@@ -22,13 +22,13 @@
     </div>
 
     <div class="border-t border-black/10 pt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-      <div>
+      <div class="glass-panel p-6">
         <h3 class="font-heading text-xl font-semibold mb-5">{{ 'how.note.title' | trans }}</h3>
         <ul class="space-y-4">
           @for (note of notes; track note.key) {
             <li class="flex items-start gap-3 text-sm text-ck-negro/65">
               <span
-                class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ck-arena text-ck-madera"
+                class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full glass-chip text-ck-madera"
                 aria-hidden="true"
               >
                 <i class="bi {{ note.icon }} text-base"></i>

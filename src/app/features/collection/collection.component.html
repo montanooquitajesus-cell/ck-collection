@@ -1,5 +1,5 @@
 <section class="px-4 md:px-8 py-14 md:py-20">
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="max-w-2xl mb-10">
       <h1 class="font-heading text-4xl md:text-5xl font-semibold mb-3">
         {{ 'collection.title' | trans }}
@@ -7,18 +7,14 @@
       <p class="text-ck-negro/60 text-base md:text-lg">{{ 'collection.sub' | trans }}</p>
     </div>
 
-    <div class="flex flex-wrap gap-2 mb-10">
+    <div class="filter-row">
       @for (o of occasions; track o.id) {
         <a
           [routerLink]="[]"
           [queryParams]="o.id === 'all' ? {} : { ocasion: o.id }"
           (click)="setFilter(o.id)"
-          class="px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] border transition-colors cursor-pointer"
-          [class.bg-ck-negro]="activeFilter() === o.id"
-          [class.text-[#f7f3ee]]="activeFilter() === o.id"
-          [class.border-ck-negro]="activeFilter() === o.id"
-          [class.border-black/15]="activeFilter() !== o.id"
-          [class.text-ck-negro/60]="activeFilter() !== o.id"
+          class="filter-chip"
+          [class.is-active]="activeFilter() === o.id"
         >
           {{ o.labelKey | trans }}
         </a>
@@ -43,7 +39,7 @@
               </p>
             </div>
           </div>
-          <div class="py-4 flex items-center justify-between border-b border-black/10 px-1">
+          <div class="py-4 flex items-center justify-between px-3">
             <span class="text-sm text-ck-negro/55">
               {{ 'collection.from' | trans }} ${{ dress.price | number }}
               {{ 'collection.days' | trans }}
