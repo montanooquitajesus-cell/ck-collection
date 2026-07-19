@@ -1,9 +1,15 @@
 <!-- Hero with image carousel -->
-<section class="hero-stage">
+<section class="hero-stage" #heroStage>
   <div class="hero-carousel" aria-hidden="true">
     @for (dress of carousel; track dress.id; let i = $index) {
       <div class="hero-slide" [class.is-active]="slideIndex() === i">
-        <img [src]="dress.image" [alt]="dress.name" />
+        <img
+          [src]="dress.image"
+          [alt]="dress.name"
+          [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+          [attr.fetchpriority]="i === 0 ? 'high' : 'low'"
+          decoding="async"
+        />
       </div>
     }
   </div>
