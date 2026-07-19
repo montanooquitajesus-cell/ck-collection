@@ -514,19 +514,32 @@ h6 {
   border: 0;
 }
 
+.divider-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-block: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .divider-wrap {
+    padding-block: 2rem;
+  }
+}
+
 .divider-soft {
   display: block;
+  flex: 0 0 auto;
+  width: min(18rem, 70%);
   height: 1px;
-  width: 11rem;
-  max-width: 40vw;
-  margin: 0 auto;
   border: 0;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(196, 164, 132, 0.35) 20%,
+    rgba(196, 164, 132, 0.35) 18%,
     rgba(196, 164, 132, 0.85) 50%,
-    rgba(196, 164, 132, 0.35) 80%,
+    rgba(196, 164, 132, 0.35) 82%,
     transparent 100%
   );
 }
