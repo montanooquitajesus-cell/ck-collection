@@ -10,22 +10,14 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
         <div class="space-y-5">
-          <a
-            href="https://wa.me/526621833771"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary flex items-center justify-center gap-2 px-6 py-4 rounded-full text-xs font-bold uppercase tracking-[0.14em]"
-          >
+          <a href="https://wa.me/526621833771" target="_blank" rel="noopener noreferrer"
+            class="btn-primary flex items-center justify-center gap-2 px-6 py-4 rounded-full text-xs font-bold uppercase tracking-[0.14em]">
             <i class="bi bi-whatsapp text-base"></i>
             {{ 'contact.whatsapp' | trans }}
           </a>
 
-          <a
-            [href]="massageWhatsApp"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-outline flex items-center justify-center gap-2 px-6 py-4 rounded-full text-xs font-bold uppercase tracking-[0.14em]"
-          >
+          <a [href]="massageWhatsApp" target="_blank" rel="noopener noreferrer"
+            class="btn-outline flex items-center justify-center gap-2 px-6 py-4 rounded-full text-xs font-bold uppercase tracking-[0.14em]">
             <i class="bi bi-whatsapp text-base"></i>
             {{ 'contact.whatsapp.massage' | trans }}
           </a>
@@ -49,21 +41,13 @@
             </div>
 
             <div class="pt-4 border-t border-black/8 flex flex-wrap gap-4 text-sm">
-              <a
-                href="https://www.instagram.com/ck_collectioon"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 hover:text-ck-madera"
-              >
+              <a href="https://www.instagram.com/ck_collectioon" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 hover:text-ck-madera">
                 <i class="bi bi-instagram"></i>
                 @ck_collectioon
               </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61551077966889&mibextid=rS40aB7S9Ucbxw6v"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 hover:text-ck-madera"
-              >
+              <a href="https://www.facebook.com/profile.php?id=61551077966889&mibextid=rS40aB7S9Ucbxw6v" target="_blank"
+                rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-ck-madera">
                 <i class="bi bi-facebook"></i>
                 CK Collectioon
               </a>
@@ -75,10 +59,10 @@
           <h2 class="font-heading text-2xl font-semibold mb-6">{{ 'contact.faq.title' | trans }}</h2>
           <div class="space-y-6">
             @for (faq of faqs; track faq.q) {
-              <div>
-                <h3 class="font-semibold mb-1.5">{{ faq.q | trans }}</h3>
-                <p class="text-sm text-ck-negro/60 leading-relaxed">{{ faq.a | trans }}</p>
-              </div>
+            <div>
+              <h3 class="font-semibold mb-1.5">{{ faq.q | trans }}</h3>
+              <p class="text-sm text-ck-negro/60 leading-relaxed">{{ faq.a | trans }}</p>
+            </div>
             }
           </div>
         </div>
@@ -93,23 +77,17 @@
           </h2>
           <p class="text-sm text-ck-negro/55">{{ 'contact.map.sub' | trans }}</p>
         </div>
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=Zapateros+25+Colonia+Y+Griega+Hermosillo+Sonora"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm font-semibold underline underline-offset-4 hover:text-ck-madera"
-        >
+        <a href="https://maps.app.goo.gl/7TtsUNNDBZc6x8qu6"
+          target="_blank" rel="noopener noreferrer"
+          class="text-sm font-semibold underline underline-offset-4 hover:text-ck-madera">
           {{ 'contact.map.open' | trans }} →
         </a>
       </div>
       <div class="overflow-hidden rounded-2xl border border-black/10 bg-ck-arena/40">
         <iframe
-          class="map-frame"
-          title="CK Collection — Hermosillo"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=Zapateros%2025%2C%20Colonia%20Y%20Griega%2C%20Hermosillo%2C%20Sonora&t=&z=16&ie=UTF8&iwloc=&output=embed"
-        ></iframe>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3488.4641846181066!2d-110.95912952433287!3d29.032848775448507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce85ca69de8f27%3A0xd17da130a75198f7!2sCk%20collection!5e0!3m2!1ses!2smx!4v1784435697612!5m2!1ses!2smx"
+                    class="map-frame" title="CK Collectioon - Hermosillo" style="border:0;" allowfullscreen="" loading="lazy" 
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     </div>
   </div>
