@@ -515,8 +515,20 @@ h6 {
 }
 
 .divider-soft {
+  display: block;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(196, 164, 132, 0.55), transparent);
+  width: 11rem;
+  max-width: 40vw;
+  margin: 0 auto;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(196, 164, 132, 0.35) 20%,
+    rgba(196, 164, 132, 0.85) 50%,
+    rgba(196, 164, 132, 0.35) 80%,
+    transparent 100%
+  );
 }
 
 .how-step-icon {
