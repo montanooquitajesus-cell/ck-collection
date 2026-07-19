@@ -25,10 +25,35 @@
           <p class="text-ck-negro/60 text-lg mb-8">{{ tagline() }}</p>
 
           <p class="font-heading text-3xl font-semibold mb-1">
-            ${{ d.price | number }}
-            <span class="text-base font-medium text-ck-negro/45">{{ 'collection.days' | trans }}</span>
+            ${{ estimatedPrice() | number }}
+            <span class="text-base font-medium text-ck-negro/45">
+              / {{ selectedDays() }} {{ 'detail.days.unit' | trans }}
+            </span>
           </p>
-          <p class="text-sm text-ck-negro/50 mb-8">{{ 'detail.includes' | trans }}</p>
+          <p class="text-sm text-ck-negro/50 mb-6">{{ 'detail.price.note' | trans }}</p>
+
+          <div class="mb-8">
+            <p class="text-xs font-bold uppercase tracking-[0.14em] text-ck-negro/70 mb-3">
+              {{ 'detail.days.label' | trans }}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              @for (days of dayOptions; track days) {
+                <button
+                  type="button"
+                  (click)="setDays(days)"
+                  class="min-w-12 px-3 py-2 text-center text-sm border transition-colors cursor-pointer"
+                  [class.bg-ck-negro]="selectedDays() === days"
+                  [class.text-[#f7f3ee]]="selectedDays() === days"
+                  [class.border-ck-negro]="selectedDays() === days"
+                  [class.border-black/15]="selectedDays() !== days"
+                  [class.text-ck-negro]="selectedDays() !== days"
+                >
+                  {{ days }}
+                </button>
+              }
+            </div>
+            <p class="text-xs text-ck-negro/45 mt-3">{{ 'detail.days.hint' | trans }}</p>
+          </div>
 
           <div class="mb-8">
             <p class="text-xs font-bold uppercase tracking-[0.14em] text-ck-negro/70 mb-3">
@@ -43,16 +68,21 @@
             </div>
           </div>
 
+          <p class="text-sm text-ck-negro/50 mb-6">{{ 'detail.includes' | trans }}</p>
+
           <a
-            routerLink="/contacto"
-            class="btn-primary inline-flex items-center justify-center px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.14em]"
+            [href]="whatsappUrl()"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.14em]"
           >
+            <i class="bi bi-whatsapp text-base"></i>
             {{ 'detail.rent' | trans }}
           </a>
         </div>
       </div>
     } @else {
-      <p class="text-ck-negro/50">Vestido no encontrado.</p>
+      <p class="text-ck-negro/50">{{ 'detail.notFound' | trans }}</p>
     }
   </div>
 </section>

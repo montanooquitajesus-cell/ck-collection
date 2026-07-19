@@ -34,7 +34,7 @@ export class MassagesComponent {
     const filter =
       fromQuery === 'relaxing' ||
       fromQuery === 'therapeutic' ||
-      fromQuery === 'specialty'
+      fromQuery === 'sculpting'
         ? fromQuery
         : this.selected();
 
@@ -47,7 +47,7 @@ export class MassagesComponent {
     if (
       fromQuery === 'relaxing' ||
       fromQuery === 'therapeutic' ||
-      fromQuery === 'specialty'
+      fromQuery === 'sculpting'
     ) {
       return fromQuery;
     }

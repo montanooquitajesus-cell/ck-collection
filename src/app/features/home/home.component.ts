@@ -25,20 +25,20 @@ export class HomeComponent implements OnInit {
       key: 'wedding',
       labelKey: 'collection.filter.wedding',
       path: '/coleccion',
-      hint: 'Luna · Perla',
+      hint: 'Consulta disponibilidad',
     },
-    { key: 'xv', labelKey: 'collection.filter.xv', path: '/coleccion', hint: 'Celeste' },
+    { key: 'xv', labelKey: 'collection.filter.xv', path: '/coleccion', hint: 'Medianoche · Sol' },
     {
       key: 'gala',
       labelKey: 'collection.filter.gala',
       path: '/coleccion',
-      hint: 'Aurora · Rosa',
+      hint: 'Zafiro · Nocturna',
     },
     {
       key: 'cocktail',
       labelKey: 'collection.filter.cocktail',
       path: '/coleccion',
-      hint: 'Noir',
+      hint: 'Savanna · Pluma',
     },
   ];
 

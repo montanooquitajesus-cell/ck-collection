@@ -5,6 +5,7 @@ export interface Dress {
   name: string;
   nameEn: string;
   occasion: DressOccasion;
+  /** Precio base de referencia para `RENTAL_BASE_DAYS` días. */
   price: number;
   sizes: string[];
   tone: string;
@@ -14,84 +15,108 @@ export interface Dress {
   image: string;
 }
 
+/** Días incluidos en el precio publicado del catálogo. */
+export const RENTAL_BASE_DAYS = 4;
+
+/** Rango que el cliente puede elegir en la ficha. */
+export const RENTAL_DAY_OPTIONS = [1, 2, 3, 4, 5, 6, 7] as const;
+
+export function estimateRentalPrice(basePrice: number, days: number): number {
+  const safeDays = Math.max(1, Math.round(days));
+  return Math.round((basePrice / RENTAL_BASE_DAYS) * safeDays);
+}
+
+export function dressRentalWhatsAppUrl(
+  dressName: string,
+  days: number,
+  estimatedPrice: number,
+  lang: 'es' | 'en' = 'es'
+): string {
+  const text =
+    lang === 'en'
+      ? `Hi, I'd like to rent "${dressName}" for ${days} day(s). Estimated total: $${estimatedPrice}. Could you confirm availability?`
+      : `Hola, quiero rentar "${dressName}" por ${days} día(s). Total estimado: $${estimatedPrice}. ¿Me confirman disponibilidad?`;
+  return `https://wa.me/526621833771?text=${encodeURIComponent(text)}`;
+}
+
 export const DRESSES: Dress[] = [
   {
-    id: 'aurora',
-    name: 'Aurora',
-    nameEn: 'Aurora',
+    id: 'zafiro',
+    name: 'Zafiro',
+    nameEn: 'Sapphire',
     occasion: 'gala',
     price: 1890,
     sizes: ['XS', 'S', 'M'],
-    tone: '#2a1f24',
-    accent: '#c4788a',
-    tagline: 'Satinado con caída larga',
-    taglineEn: 'Long-fall satin silhouette',
-    image: 'assets/dresses/aurora.jpg',
+    tone: '#1a3a7a',
+    accent: '#5b8fd9',
+    tagline: 'Sirena azul con brillo radial',
+    taglineEn: 'Blue mermaid with radial sparkle',
+    image: 'assets/dresses/ck-1.jpg',
   },
   {
-    id: 'luna',
-    name: 'Luna',
-    nameEn: 'Luna',
-    occasion: 'wedding',
-    price: 2490,
-    sizes: ['S', 'M', 'L'],
-    tone: '#ebe4e0',
-    accent: '#8f3d52',
-    tagline: 'Marfil con detalle floral',
-    taglineEn: 'Ivory with floral detail',
-    image: 'assets/dresses/luna.jpg',
-  },
-  {
-    id: 'celeste',
-    name: 'Celeste',
-    nameEn: 'Celeste',
-    occasion: 'xv',
-    price: 2190,
-    sizes: ['XS', 'S', 'M', 'L'],
-    tone: '#3d4a6b',
-    accent: '#b7c4e0',
-    tagline: 'Volumen de ensueño',
-    taglineEn: 'Dreamy volume',
-    image: 'assets/dresses/celeste.jpg',
-  },
-  {
-    id: 'noir',
-    name: 'Noir Édition',
-    nameEn: 'Noir Édition',
+    id: 'savanna',
+    name: 'Savanna',
+    nameEn: 'Savanna',
     occasion: 'cocktail',
     price: 1590,
+    sizes: ['S', 'M', 'L'],
+    tone: '#c4a484',
+    accent: '#2a211c',
+    tagline: 'Animal print con caída larga',
+    taglineEn: 'Animal print with long fall',
+    image: 'assets/dresses/ck-2.jpg',
+  },
+  {
+    id: 'nocturna',
+    name: 'Nocturna',
+    nameEn: 'Nocturne',
+    occasion: 'gala',
+    price: 2190,
     sizes: ['XS', 'S', 'M'],
     tone: '#141414',
     accent: '#d4af87',
-    tagline: 'Cóctel con brillo sutil',
-    taglineEn: 'Cocktail with soft shimmer',
-    image: 'assets/dresses/noir.jpg',
+    tagline: 'Encaje ilusión y capa de tul',
+    taglineEn: 'Illusion lace with tulle overlay',
+    image: 'assets/dresses/ck-4.jpg',
   },
   {
-    id: 'rosa',
-    name: 'Rosa Antigua',
-    nameEn: 'Antique Rose',
-    occasion: 'gala',
+    id: 'medianoche',
+    name: 'Medianoche',
+    nameEn: 'Midnight',
+    occasion: 'xv',
+    price: 2090,
+    sizes: ['XS', 'S', 'M', 'L'],
+    tone: '#1a2744',
+    accent: '#8a94a8',
+    tagline: 'Bodice estructurado y falda de tul',
+    taglineEn: 'Structured bodice and tulle skirt',
+    image: 'assets/dresses/ck-5.jpg',
+  },
+  {
+    id: 'sol',
+    name: 'Sol',
+    nameEn: 'Sol',
+    occasion: 'xv',
     price: 1990,
     sizes: ['S', 'M', 'L'],
-    tone: '#6e3a48',
-    accent: '#e8c4cc',
-    tagline: 'Drapeado romántico',
-    taglineEn: 'Romantic drape',
-    image: 'assets/dresses/rosa.jpg',
+    tone: '#e8b84a',
+    accent: '#f5d98a',
+    tagline: 'Amarillo sirena con volantes',
+    taglineEn: 'Yellow mermaid with ruffles',
+    image: 'assets/dresses/ck-6.jpg',
   },
   {
-    id: 'perla',
-    name: 'Perla',
-    nameEn: 'Perla',
-    occasion: 'wedding',
-    price: 2290,
+    id: 'pluma',
+    name: 'Pluma',
+    nameEn: 'Plume',
+    occasion: 'cocktail',
+    price: 1790,
     sizes: ['XS', 'S', 'M'],
-    tone: '#f0ebe6',
-    accent: '#9a7b6a',
-    tagline: 'Minimal con cola suave',
-    taglineEn: 'Minimal with soft train',
-    image: 'assets/dresses/perla.jpg',
+    tone: '#c0c4c8',
+    accent: '#e8a0b0',
+    tagline: 'Plata lentejuela con plumas rosa',
+    taglineEn: 'Silver sequin with pink feathers',
+    image: 'assets/dresses/ck-7.jpg',
   },
 ];
 

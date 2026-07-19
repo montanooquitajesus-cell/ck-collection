@@ -1,11 +1,17 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 import { LanguageService } from '../../core/services/language.service';
-import { DRESSES } from '../../core/data/dresses';
+import {
+  DRESSES,
+  RENTAL_BASE_DAYS,
+  RENTAL_DAY_OPTIONS,
+  dressRentalWhatsAppUrl,
+  estimateRentalPrice,
+} from '../../core/data/dresses';
 
 @Component({
   selector: 'app-dress-detail',
@@ -17,11 +23,21 @@ export class DressDetailComponent {
   private readonly route = inject(ActivatedRoute);
   readonly lang = inject(LanguageService);
 
+  readonly dayOptions = RENTAL_DAY_OPTIONS;
+  readonly baseDays = RENTAL_BASE_DAYS;
+  readonly selectedDays = signal<number>(RENTAL_BASE_DAYS);
+
   private readonly id = toSignal(this.route.paramMap.pipe(map((p) => p.get('id'))), {
     initialValue: null,
   });
 
   readonly dress = computed(() => DRESSES.find((d) => d.id === this.id()) ?? null);
+
+  readonly estimatedPrice = computed(() => {
+    const d = this.dress();
+    if (!d) return 0;
+    return estimateRentalPrice(d.price, this.selectedDays());
+  });
 
   name(): string {
     const d = this.dress();
@@ -39,5 +55,18 @@ export class DressDetailComponent {
     const d = this.dress();
     if (!d) return '';
     return `collection.filter.${d.occasion}`;
+  }
+
+  setDays(days: number) {
+    this.selectedDays.set(days);
+  }
+
+  whatsappUrl(): string {
+    return dressRentalWhatsAppUrl(
+      this.name(),
+      this.selectedDays(),
+      this.estimatedPrice(),
+      this.lang.currentLang()
+    );
   }
 }

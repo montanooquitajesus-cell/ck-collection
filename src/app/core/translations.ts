@@ -47,7 +47,7 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'collection.filter.gala': 'Gala',
     'collection.filter.cocktail': 'Cocktail',
     'collection.from': 'Desde',
-    'collection.days': '/ 4 días',
+    'collection.days': '/ desde 4 días',
     'collection.view': 'Ver detalle',
 
     'massages.title': 'Masajes',
@@ -55,8 +55,8 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
       'Sesiones de bienestar en Hermosillo. Elige tu servicio y agenda por WhatsApp.',
     'massages.filter.all': 'Todos',
     'massages.filter.relaxing': 'Relajantes',
-    'massages.filter.therapeutic': 'Terapéuticos',
-    'massages.filter.specialty': 'Especiales',
+    'massages.filter.therapeutic': 'Descontracturantes',
+    'massages.filter.sculpting': 'Modeladores',
     'massages.min': 'min',
     'massages.view': 'Ver detalle',
 
@@ -78,7 +78,7 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'how.step3.desc':
       'Recoge tu vestido en Hermosillo. Al terminar, lo devuelves según la guía de cuidado.',
     'how.note.title': 'Qué incluye',
-    'how.note.1': 'Renta de 3 a 5 días',
+    'how.note.1': 'Elige cuántos días necesitas (1 a 7)',
     'how.note.2': 'Prueba de vestido previa',
     'how.note.3': 'Guía de cuidado y devolución',
     'how.note.4': 'Asesoría de estilo por cita',
@@ -96,8 +96,9 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'contact.map.sub': 'Zapateros #25, Colonia Y Griega · Hermosillo, Sonora',
     'contact.map.open': 'Abrir en Google Maps',
     'contact.faq.title': 'Preguntas frecuentes',
-    'contact.faq.1.q': '¿Cuánto dura la renta?',
-    'contact.faq.1.a': 'Normalmente de 3 a 5 días. Podemos ajustar según tu evento.',
+    'contact.faq.1.q': '¿Cuántos días puedo rentar?',
+    'contact.faq.1.a':
+      'Tú eliges: en la ficha del vestido puedes seleccionar de 1 a 7 días. El precio se ajusta según el período y lo confirmamos por WhatsApp.',
     'contact.faq.2.q': '¿Qué pasa si no me queda?',
     'contact.faq.2.a':
       'Agenda una prueba en Hermosillo. Si hace falta, te ayudamos a cambiar de talla o de modelo.',
@@ -113,10 +114,15 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
       'Sí. Todas las sesiones son por cita para garantizar espacio privado y atención personalizada.',
 
     'detail.back': 'Volver a colección',
-    'detail.rent': 'Consultar disponibilidad',
+    'detail.rent': 'Consultar por WhatsApp',
     'detail.size': 'Tallas',
     'detail.occasion': 'Ocasión',
-    'detail.includes': 'Incluye asesoría de estilo y período de renta estándar.',
+    'detail.includes': 'Incluye asesoría de estilo. El total final se confirma al agendar.',
+    'detail.days.label': 'Días de renta',
+    'detail.days.unit': 'días',
+    'detail.days.hint': 'Elige cuántos días necesitas. El precio se recalcula al instante.',
+    'detail.price.note': 'Estimado según los días elegidos (precio base de referencia: 4 días).',
+    'detail.notFound': 'Vestido no encontrado.',
   },
   en: {
     'common.rights': '© CK Collection. Hermosillo, Sonora. All rights reserved.',
@@ -164,7 +170,7 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'collection.filter.gala': 'Gala',
     'collection.filter.cocktail': 'Cocktail',
     'collection.from': 'From',
-    'collection.days': '/ 4 days',
+    'collection.days': '/ from 4 days',
     'collection.view': 'View details',
 
     'massages.title': 'Massage',
@@ -172,8 +178,8 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
       'Wellness sessions in Hermosillo. Choose a service and book on WhatsApp.',
     'massages.filter.all': 'All',
     'massages.filter.relaxing': 'Relaxing',
-    'massages.filter.therapeutic': 'Therapeutic',
-    'massages.filter.specialty': 'Specialty',
+    'massages.filter.therapeutic': 'Deep tissue',
+    'massages.filter.sculpting': 'Sculpting',
     'massages.min': 'min',
     'massages.view': 'View details',
 
@@ -195,7 +201,7 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'how.step3.desc':
       'Pick up your dress in Hermosillo. When done, return it following the care guide.',
     'how.note.title': 'What’s included',
-    'how.note.1': '3 to 5 day rental',
+    'how.note.1': 'Choose how many days you need (1 to 7)',
     'how.note.2': 'Pre-event fitting',
     'how.note.3': 'Care & return guide',
     'how.note.4': 'Style advice by appointment',
@@ -213,8 +219,9 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'contact.map.sub': 'Zapateros #25, Colonia Y Griega · Hermosillo, Sonora',
     'contact.map.open': 'Open in Google Maps',
     'contact.faq.title': 'FAQ',
-    'contact.faq.1.q': 'How long is the rental?',
-    'contact.faq.1.a': 'Usually 3 to 5 days. We can adjust based on your event.',
+    'contact.faq.1.q': 'How many days can I rent?',
+    'contact.faq.1.a':
+      'You choose: on each dress page you can select 1 to 7 days. The price adjusts to the period and we confirm on WhatsApp.',
     'contact.faq.2.q': 'What if it doesn’t fit?',
     'contact.faq.2.a':
       'Book a fitting in Hermosillo. If needed, we’ll help you change size or style.',
@@ -230,9 +237,14 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
       'Yes. Every session is appointment-only so we can guarantee a private space and focused care.',
 
     'detail.back': 'Back to collection',
-    'detail.rent': 'Check availability',
+    'detail.rent': 'Ask on WhatsApp',
     'detail.size': 'Sizes',
     'detail.occasion': 'Occasion',
-    'detail.includes': 'Includes style advice and a standard rental period.',
+    'detail.includes': 'Includes style advice. Final total is confirmed when you book.',
+    'detail.days.label': 'Rental days',
+    'detail.days.unit': 'days',
+    'detail.days.hint': 'Pick how many days you need. The price updates instantly.',
+    'detail.price.note': 'Estimate based on selected days (reference base price: 4 days).',
+    'detail.notFound': 'Dress not found.',
   },
 };

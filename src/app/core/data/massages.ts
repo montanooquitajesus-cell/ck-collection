@@ -1,4 +1,4 @@
-export type MassageCategory = 'relaxing' | 'therapeutic' | 'specialty';
+export type MassageCategory = 'relaxing' | 'therapeutic' | 'sculpting';
 
 export interface Massage {
   id: string;
@@ -16,94 +16,64 @@ export interface Massage {
 
 export const MASSAGES: Massage[] = [
   {
-    id: 'relajante',
-    name: 'Masaje relajante',
-    nameEn: 'Relaxing massage',
+    id: 'relajantes',
+    name: 'Masajes relajantes',
+    nameEn: 'Relaxing massages',
     category: 'relaxing',
     durationMin: 60,
     price: 550,
-    tagline: 'Suavidad y calma profunda',
-    taglineEn: 'Softness and deep calm',
+    tagline: 'Calma profunda para cuerpo y mente',
+    taglineEn: 'Deep calm for body and mind',
     description:
-      'Masaje de cuerpo completo con movimientos lentos y presión suave para soltar tensión y recuperar tranquilidad.',
+      'Sesión suave de cuerpo completo con movimientos lentos para soltar estrés, mejorar el descanso y recuperar bienestar.',
     descriptionEn:
-      'Full-body massage with slow movements and gentle pressure to release tension and restore calm.',
+      'Gentle full-body session with slow movements to release stress, improve rest, and restore wellbeing.',
     image: 'assets/massages/relajante.jpg',
   },
   {
-    id: 'descontracturante',
-    name: 'Masaje descontracturante',
-    nameEn: 'Deep tissue massage',
+    id: 'descontracturantes',
+    name: 'Masajes descontracturantes',
+    nameEn: 'Deep tissue massages',
     category: 'therapeutic',
     durationMin: 60,
     price: 650,
-    tagline: 'Alivio para cuello, espalda y hombros',
-    taglineEn: 'Relief for neck, back, and shoulders',
+    tagline: 'Alivio de nudos y tensión muscular',
+    taglineEn: 'Relief for knots and muscle tension',
     description:
-      'Enfoque terapéutico en zonas de tensión crónica. Ideal si pasas mucho tiempo sentada o con estrés físico.',
+      'Enfoque terapéutico en zonas contracturadas — cuello, espalda y hombros — para liberar tensión acumulada.',
     descriptionEn:
-      'Therapeutic focus on chronic tension areas. Ideal if you sit for long periods or carry physical stress.',
+      'Therapeutic focus on contracted areas — neck, back, and shoulders — to release built-up tension.',
     image: 'assets/massages/descontracturante.jpg',
   },
   {
-    id: 'piedras-calientes',
-    name: 'Piedras calientes',
-    nameEn: 'Hot stone massage',
-    category: 'specialty',
+    id: 'maderoterapia',
+    name: 'Maderoterapia',
+    nameEn: 'Wood therapy',
+    category: 'sculpting',
+    durationMin: 60,
+    price: 700,
+    tagline: 'Modelado con instrumentos de madera',
+    taglineEn: 'Contouring with wooden instruments',
+    description:
+      'Técnica con rodillos y herramientas de madera para estimular circulación, trabajar tejidos y apoyar el contorno corporal.',
+    descriptionEn:
+      'Technique using wooden rollers and tools to stimulate circulation, work tissues, and support body contour.',
+    image: 'assets/massages/maderoterapia.jpg',
+  },
+  {
+    id: 'moldeador-vendaje',
+    name: 'Moldeador y reductivo con vendaje',
+    nameEn: 'Sculpting wrap with bandage',
+    category: 'sculpting',
     durationMin: 75,
-    price: 750,
-    tagline: 'Calor suave y relajación profunda',
-    taglineEn: 'Gentle heat and deep relaxation',
+    price: 850,
+    tagline: 'Modelado corporal con vendaje',
+    taglineEn: 'Body sculpting with wrap bandage',
     description:
-      'Combina masaje manual con piedras volcánicas tibias para abrir el músculo y prolongar la sensación de bienestar.',
+      'Tratamiento moldeador y reductivo con vendaje para trabajar zonas específicas y potenciar la sensación de contorno firmado.',
     descriptionEn:
-      'Combines hands-on work with warm volcanic stones to open the muscle and extend the sense of wellbeing.',
-    image: 'assets/massages/piedras.jpg',
-  },
-  {
-    id: 'craneofacial',
-    name: 'Craneofacial',
-    nameEn: 'Craniofacial massage',
-    category: 'relaxing',
-    durationMin: 45,
-    price: 450,
-    tagline: 'Rostro, cuello y cabeza',
-    taglineEn: 'Face, neck, and scalp',
-    description:
-      'Sesión enfocada en cuero cabelludo, frente, sienes y cuello. Excelente para dolores de cabeza por tensión.',
-    descriptionEn:
-      'Session focused on scalp, forehead, temples, and neck. Excellent for tension headaches.',
-    image: 'assets/massages/craneofacial.jpg',
-  },
-  {
-    id: 'pareja',
-    name: 'Masaje en pareja',
-    nameEn: 'Couples massage',
-    category: 'specialty',
-    durationMin: 60,
-    price: 1100,
-    tagline: 'Dos camillas, una experiencia compartida',
-    taglineEn: 'Two tables, one shared experience',
-    description:
-      'Dos masajes simultáneos en ambiente privado. Ideal para aniversarios, fechas especiales o un regalo juntos.',
-    descriptionEn:
-      'Two simultaneous massages in a private setting. Ideal for anniversaries, special dates, or a shared gift.',
-    image: 'assets/massages/pareja.jpg',
-  },
-  {
-    id: 'prenatal',
-    name: 'Masaje prenatal',
-    nameEn: 'Prenatal massage',
-    category: 'therapeutic',
-    durationMin: 60,
-    price: 600,
-    tagline: 'Cuidado seguro en el embarazo',
-    taglineEn: 'Safe care during pregnancy',
-    description:
-      'Técnica adaptada al embarazo para aliviar espalda, piernas y fatiga. Consultamos trimestre y restricciones antes de la sesión.',
-    descriptionEn:
-      'Pregnancy-adapted technique to ease back, legs, and fatigue. We review trimester and restrictions before the session.',
-    image: 'assets/massages/prenatal.jpg',
+      'Sculpting and reductive treatment with bandage wrap to target specific areas and enhance a firmer contour feel.',
+    image: 'assets/massages/moldeador.jpg',
   },
 ];
 
@@ -111,7 +81,7 @@ export const MASSAGE_CATEGORIES: { id: MassageCategory | 'all'; labelKey: string
   { id: 'all', labelKey: 'massages.filter.all' },
   { id: 'relaxing', labelKey: 'massages.filter.relaxing' },
   { id: 'therapeutic', labelKey: 'massages.filter.therapeutic' },
-  { id: 'specialty', labelKey: 'massages.filter.specialty' },
+  { id: 'sculpting', labelKey: 'massages.filter.sculpting' },
 ];
 
 export function massageWhatsAppUrl(serviceName: string, lang: 'es' | 'en' = 'es'): string {
