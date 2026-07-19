@@ -79,27 +79,18 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-      <div>
-        <p class="font-heading text-ck-madera text-sm font-bold tracking-[0.2em] uppercase mb-3">
-          01
-        </p>
-        <h3 class="font-heading text-xl font-semibold mb-2">{{ 'home.how.1.title' | trans }}</h3>
-        <p class="text-sm text-ck-negro/60 leading-relaxed">{{ 'home.how.1.desc' | trans }}</p>
-      </div>
-      <div>
-        <p class="font-heading text-ck-madera text-sm font-bold tracking-[0.2em] uppercase mb-3">
-          02
-        </p>
-        <h3 class="font-heading text-xl font-semibold mb-2">{{ 'home.how.2.title' | trans }}</h3>
-        <p class="text-sm text-ck-negro/60 leading-relaxed">{{ 'home.how.2.desc' | trans }}</p>
-      </div>
-      <div>
-        <p class="font-heading text-ck-madera text-sm font-bold tracking-[0.2em] uppercase mb-3">
-          03
-        </p>
-        <h3 class="font-heading text-xl font-semibold mb-2">{{ 'home.how.3.title' | trans }}</h3>
-        <p class="text-sm text-ck-negro/60 leading-relaxed">{{ 'home.how.3.desc' | trans }}</p>
-      </div>
+      @for (step of howSteps; track step.titleKey; let i = $index) {
+        <div>
+          <div class="how-home-icon" aria-hidden="true">
+            <i class="bi {{ step.icon }}"></i>
+          </div>
+          <p class="font-heading text-ck-madera text-sm font-bold tracking-[0.2em] uppercase mb-3">
+            0{{ i + 1 }}
+          </p>
+          <h3 class="font-heading text-xl font-semibold mb-2">{{ step.titleKey | trans }}</h3>
+          <p class="text-sm text-ck-negro/60 leading-relaxed">{{ step.descKey | trans }}</p>
+        </div>
+      }
     </div>
     <div class="divider-soft mt-12"></div>
   </div>

@@ -61,11 +61,21 @@
             </p>
             <div class="flex flex-wrap gap-2">
               @for (size of d.sizes; track size) {
-                <span class="min-w-12 px-3 py-2 text-center text-sm border border-black/15">
+                <button
+                  type="button"
+                  (click)="setSize(size)"
+                  class="min-w-12 px-3 py-2 text-center text-sm border transition-colors cursor-pointer"
+                  [class.bg-ck-negro]="selectedSize() === size"
+                  [class.text-[#f7f3ee]]="selectedSize() === size"
+                  [class.border-ck-negro]="selectedSize() === size"
+                  [class.border-black/15]="selectedSize() !== size"
+                  [class.text-ck-negro]="selectedSize() !== size"
+                >
                   {{ size }}
-                </span>
+                </button>
               }
             </div>
+            <p class="text-xs text-ck-negro/45 mt-3">{{ 'detail.size.hint' | trans }}</p>
           </div>
 
           <p class="text-sm text-ck-negro/50 mb-6">{{ 'detail.includes' | trans }}</p>

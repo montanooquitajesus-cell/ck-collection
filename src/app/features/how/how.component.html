@@ -5,29 +5,35 @@
       <p class="text-ck-negro/60 text-lg">{{ 'how.sub' | trans }}</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
-      <div>
-        <h2 class="font-heading text-2xl font-semibold mb-3">{{ 'how.step1.title' | trans }}</h2>
-        <p class="text-ck-negro/60 leading-relaxed">{{ 'how.step1.desc' | trans }}</p>
-      </div>
-      <div>
-        <h2 class="font-heading text-2xl font-semibold mb-3">{{ 'how.step2.title' | trans }}</h2>
-        <p class="text-ck-negro/60 leading-relaxed">{{ 'how.step2.desc' | trans }}</p>
-      </div>
-      <div>
-        <h2 class="font-heading text-2xl font-semibold mb-3">{{ 'how.step3.title' | trans }}</h2>
-        <p class="text-ck-negro/60 leading-relaxed">{{ 'how.step3.desc' | trans }}</p>
-      </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8 mb-16">
+      @for (step of steps; track step.titleKey; let i = $index) {
+        <article class="group">
+          <div class="how-step-media mb-6">
+            <img [src]="step.image" [alt]="step.titleKey | trans" loading="lazy" />
+            <div class="how-step-icon" aria-hidden="true">
+              <i class="bi {{ step.icon }}"></i>
+            </div>
+            <span class="how-step-number">0{{ i + 1 }}</span>
+          </div>
+          <h2 class="font-heading text-2xl font-semibold mb-3">{{ step.titleKey | trans }}</h2>
+          <p class="text-ck-negro/60 leading-relaxed">{{ step.descKey | trans }}</p>
+        </article>
+      }
     </div>
 
     <div class="border-t border-black/10 pt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
       <div>
         <h3 class="font-heading text-xl font-semibold mb-5">{{ 'how.note.title' | trans }}</h3>
-        <ul class="space-y-3">
-          @for (note of notes; track note) {
+        <ul class="space-y-4">
+          @for (note of notes; track note.key) {
             <li class="flex items-start gap-3 text-sm text-ck-negro/65">
-              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-ck-madera shrink-0"></span>
-              {{ note | trans }}
+              <span
+                class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ck-arena text-ck-madera"
+                aria-hidden="true"
+              >
+                <i class="bi {{ note.icon }} text-base"></i>
+              </span>
+              <span class="pt-1.5">{{ note.key | trans }}</span>
             </li>
           }
         </ul>

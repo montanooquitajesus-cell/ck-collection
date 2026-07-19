@@ -20,6 +20,12 @@ export class HomeComponent implements OnInit {
   readonly carousel = DRESSES;
   readonly slideIndex = signal(0);
 
+  readonly howSteps = [
+    { titleKey: 'home.how.1.title', descKey: 'home.how.1.desc', icon: 'bi-bag-heart' },
+    { titleKey: 'home.how.2.title', descKey: 'home.how.2.desc', icon: 'bi-calendar2-check' },
+    { titleKey: 'home.how.3.title', descKey: 'home.how.3.desc', icon: 'bi-stars' },
+  ];
+
   readonly occasions = [
     {
       key: 'wedding',

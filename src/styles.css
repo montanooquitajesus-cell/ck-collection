@@ -230,6 +230,77 @@ h6 {
   background: linear-gradient(90deg, transparent, rgba(196, 164, 132, 0.55), transparent);
 }
 
+.how-step-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--ck-linen);
+}
+
+.how-step-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .how-step-media img {
+  transform: scale(1.04);
+}
+
+.how-step-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(26, 26, 26, 0.35) 100%);
+  pointer-events: none;
+}
+
+.how-step-icon {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background: rgba(247, 243, 238, 0.92);
+  color: var(--ck-negro);
+  font-size: 1.15rem;
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.12);
+}
+
+.how-step-number {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #f7f3ee;
+  text-shadow: 0 1px 8px rgba(26, 26, 26, 0.35);
+}
+
+.how-home-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 1rem;
+  border-radius: 9999px;
+  background: rgba(196, 164, 132, 0.18);
+  color: var(--ck-madera);
+  font-size: 1.25rem;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;

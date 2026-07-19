@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -26,6 +26,7 @@ export class DressDetailComponent {
   readonly dayOptions = RENTAL_DAY_OPTIONS;
   readonly baseDays = RENTAL_BASE_DAYS;
   readonly selectedDays = signal<number>(RENTAL_BASE_DAYS);
+  readonly selectedSize = signal<string>('');
 
   private readonly id = toSignal(this.route.paramMap.pipe(map((p) => p.get('id'))), {
     initialValue: null,
@@ -38,6 +39,20 @@ export class DressDetailComponent {
     if (!d) return 0;
     return estimateRentalPrice(d.price, this.selectedDays());
   });
+
+  constructor() {
+    effect(() => {
+      const d = this.dress();
+      if (!d?.sizes.length) {
+        this.selectedSize.set('');
+        return;
+      }
+      const current = this.selectedSize();
+      if (!current || !d.sizes.includes(current)) {
+        this.selectedSize.set(d.sizes.includes('M') ? 'M' : d.sizes[0]);
+      }
+    });
+  }
 
   name(): string {
     const d = this.dress();
@@ -61,11 +76,16 @@ export class DressDetailComponent {
     this.selectedDays.set(days);
   }
 
+  setSize(size: string) {
+    this.selectedSize.set(size);
+  }
+
   whatsappUrl(): string {
     return dressRentalWhatsAppUrl(
       this.name(),
       this.selectedDays(),
       this.estimatedPrice(),
+      this.selectedSize() || '—',
       this.lang.currentLang()
     );
   }

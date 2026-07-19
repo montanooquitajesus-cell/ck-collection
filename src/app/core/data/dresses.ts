@@ -30,14 +30,18 @@ export function dressRentalWhatsAppUrl(
   dressName: string,
   days: number,
   estimatedPrice: number,
+  size: string,
   lang: 'es' | 'en' = 'es'
 ): string {
   const text =
     lang === 'en'
-      ? `Hi, I'd like to rent "${dressName}" for ${days} day(s). Estimated total: $${estimatedPrice}. Could you confirm availability?`
-      : `Hola, quiero rentar "${dressName}" por ${days} día(s). Total estimado: $${estimatedPrice}. ¿Me confirman disponibilidad?`;
+      ? `Hi, I'd like to rent "${dressName}" in size ${size} for ${days} day(s). Estimated total: $${estimatedPrice}. Could you confirm availability?`
+      : `Hola, quiero rentar "${dressName}" en talla ${size} por ${days} día(s). Total estimado: $${estimatedPrice}. ¿Me confirman disponibilidad?`;
   return `https://wa.me/526621833771?text=${encodeURIComponent(text)}`;
 }
+
+/** Tallas disponibles de referencia para la colección. */
+export const DRESS_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'] as const;
 
 export const DRESSES: Dress[] = [
   {
@@ -46,7 +50,7 @@ export const DRESSES: Dress[] = [
     nameEn: 'Sapphire',
     occasion: 'gala',
     price: 1890,
-    sizes: ['XS', 'S', 'M'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
     tone: '#1a3a7a',
     accent: '#5b8fd9',
     tagline: 'Sirena azul con brillo radial',
@@ -59,7 +63,7 @@ export const DRESSES: Dress[] = [
     nameEn: 'Savanna',
     occasion: 'cocktail',
     price: 1590,
-    sizes: ['S', 'M', 'L'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
     tone: '#c4a484',
     accent: '#2a211c',
     tagline: 'Animal print con caída larga',
@@ -72,7 +76,7 @@ export const DRESSES: Dress[] = [
     nameEn: 'Nocturne',
     occasion: 'gala',
     price: 2190,
-    sizes: ['XS', 'S', 'M'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
     tone: '#141414',
     accent: '#d4af87',
     tagline: 'Encaje ilusión y capa de tul',
@@ -85,7 +89,7 @@ export const DRESSES: Dress[] = [
     nameEn: 'Midnight',
     occasion: 'xv',
     price: 2090,
-    sizes: ['XS', 'S', 'M', 'L'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
     tone: '#1a2744',
     accent: '#8a94a8',
     tagline: 'Bodice estructurado y falda de tul',
@@ -98,7 +102,7 @@ export const DRESSES: Dress[] = [
     nameEn: 'Sol',
     occasion: 'xv',
     price: 1990,
-    sizes: ['S', 'M', 'L'],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tone: '#e8b84a',
     accent: '#f5d98a',
     tagline: 'Amarillo sirena con volantes',
@@ -111,7 +115,7 @@ export const DRESSES: Dress[] = [
     nameEn: 'Plume',
     occasion: 'cocktail',
     price: 1790,
-    sizes: ['XS', 'S', 'M'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
     tone: '#c0c4c8',
     accent: '#e8a0b0',
     tagline: 'Plata lentejuela con plumas rosa',
