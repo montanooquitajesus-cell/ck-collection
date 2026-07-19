@@ -8,12 +8,12 @@
     }
   </div>
 
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 pb-14 md:pb-20 pt-20 md:pt-28">
-    <div class="max-w-xl glass-hero p-6 md:p-8">
+  <div class="hero-copy relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 pb-10 md:pb-20 pt-28 md:pt-28">
+    <div class="max-w-xl glass-hero p-5 md:p-8">
       <img
         src="assets/ck_logo.png"
         alt="CK Collection"
-        class="h-20 md:h-24 w-auto object-contain mb-8 animate-fade-up"
+        class="hero-logo h-20 md:h-24 w-auto object-contain mb-8 animate-fade-up"
       />
       <p
         class="text-xs font-semibold uppercase tracking-[0.28em] text-ck-negro/55 mb-4 animate-fade-up"
@@ -21,16 +21,16 @@
         {{ 'home.city' | trans }}
       </p>
       <h1
-        class="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] text-ck-negro mb-5 animate-fade-up-delay"
+        class="hero-headline font-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] text-ck-negro mb-5 animate-fade-up-delay"
       >
         {{ 'home.headline' | trans }}
       </h1>
       <p
-        class="text-base md:text-lg text-ck-negro/65 max-w-xl mb-8 leading-relaxed animate-fade-up-delay-2"
+        class="hero-sub text-base md:text-lg text-ck-negro/65 max-w-xl mb-8 leading-relaxed animate-fade-up-delay-2"
       >
         {{ 'home.sub' | trans }}
       </p>
-      <div class="flex flex-wrap gap-3 mb-8 animate-fade-up-delay-2">
+      <div class="hero-actions flex flex-wrap gap-3 mb-8 animate-fade-up-delay-2">
         <a
           routerLink="/coleccion"
           class="btn-primary inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold uppercase tracking-[0.14em]"
