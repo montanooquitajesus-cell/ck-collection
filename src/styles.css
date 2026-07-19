@@ -246,31 +246,27 @@ h6 {
   }
 
   .hero-copy {
-    padding-top: 0;
-    padding-bottom: 1.25rem;
-  }
-
-  .hero-copy .glass-hero {
-    margin-top: auto;
+    padding-top: 5rem;
+    padding-bottom: 1.75rem;
   }
 
   .hero-copy .hero-logo {
-    height: 4.25rem;
-    margin-bottom: 1.25rem;
+    height: 4.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-copy .hero-headline {
-    font-size: 2.15rem;
-    margin-bottom: 0.75rem;
+    font-size: 2.25rem;
+    margin-bottom: 0.85rem;
   }
 
   .hero-copy .hero-sub {
-    font-size: 0.95rem;
-    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-copy .hero-actions {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -304,23 +300,25 @@ h6 {
   transform: scale(1);
 }
 
-/* Mobile: keep the dress visible above; soft fade only under the copy */
+/* Same left wash on all breakpoints so copy stays readable over busy photos */
 .hero-stage::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    180deg,
-    rgba(235, 230, 222, 0) 0%,
-    rgba(235, 230, 222, 0.05) 48%,
-    rgba(235, 230, 222, 0.35) 72%,
-    rgba(235, 230, 222, 0.72) 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(235, 230, 222, 0.97) 0%,
+      rgba(235, 230, 222, 0.9) 32%,
+      rgba(235, 230, 222, 0.55) 58%,
+      rgba(235, 230, 222, 0.2) 78%,
+      rgba(235, 230, 222, 0.06) 100%
+    ),
+    linear-gradient(180deg, rgba(235, 230, 222, 0.18) 0%, rgba(235, 230, 222, 0.45) 100%);
   pointer-events: none;
 }
 
-/* Desktop: left wash for readable copy, image open on the right */
 @media (min-width: 768px) {
   .hero-slide img {
     object-position: center 20%;
@@ -330,13 +328,23 @@ h6 {
     background:
       linear-gradient(
         90deg,
-        rgba(235, 230, 222, 0.88) 0%,
-        rgba(235, 230, 222, 0.62) 36%,
-        rgba(235, 230, 222, 0.2) 68%,
+        rgba(235, 230, 222, 0.97) 0%,
+        rgba(235, 230, 222, 0.9) 28%,
+        rgba(235, 230, 222, 0.55) 52%,
+        rgba(235, 230, 222, 0.18) 72%,
         rgba(235, 230, 222, 0.06) 100%
       ),
-      linear-gradient(180deg, rgba(235, 230, 222, 0.1) 0%, rgba(235, 230, 222, 0.35) 100%);
+      linear-gradient(180deg, rgba(235, 230, 222, 0.12) 0%, rgba(235, 230, 222, 0.4) 100%);
   }
+}
+
+.hero-copy .hero-headline {
+  text-shadow: 0 1px 18px rgba(247, 243, 238, 0.85), 0 0 1px rgba(247, 243, 238, 0.9);
+}
+
+.hero-copy .hero-sub,
+.hero-copy .hero-city {
+  text-shadow: 0 1px 12px rgba(247, 243, 238, 0.8);
 }
 
 .hero-dots {
