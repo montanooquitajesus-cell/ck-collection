@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { Component, DestroyRef, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit {
   readonly featuredMassages = MASSAGES.slice(0, 3);
   readonly carousel = DRESSES;
   readonly slideIndex = signal(0);
+  readonly heroStage = viewChild<ElementRef<HTMLElement>>('heroStage');
+
+  private intervalId: number | null = null;
+  private readonly slideMs = 6000;
 
   readonly howSteps = [
     { titleKey: 'home.how.1.title', descKey: 'home.how.1.desc', icon: 'bi-bag-heart' },
@@ -42,8 +46,44 @@ export class HomeComponent implements OnInit {
   ];
 
   ngOnInit() {
-    const id = window.setInterval(() => this.nextSlide(), 5000);
-    this.destroyRef.onDestroy(() => clearInterval(id));
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    queueMicrotask(() => this.watchHeroVisibility());
+  }
+
+  private watchHeroVisibility() {
+    const el = this.heroStage()?.nativeElement;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      this.startCarousel();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) this.startCarousel();
+        else this.stopCarousel();
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(el);
+    this.destroyRef.onDestroy(() => {
+      observer.disconnect();
+      this.stopCarousel();
+    });
+  }
+
+  private startCarousel() {
+    if (this.intervalId !== null) return;
+    this.intervalId = window.setInterval(() => this.nextSlide(), this.slideMs);
+  }
+
+  private stopCarousel() {
+    if (this.intervalId === null) return;
+    clearInterval(this.intervalId);
+    this.intervalId = null;
   }
 
   nextSlide() {
