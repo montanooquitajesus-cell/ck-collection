@@ -1,5 +1,5 @@
 <!-- Hero with image carousel -->
-<section class="hero-stage" #heroStage>
+<section id="home-hero" class="hero-stage" #heroStage>
   <div class="hero-carousel" aria-hidden="true">
     @for (dress of carousel; track dress.id; let i = $index) {
       <div class="hero-slide" [class.is-active]="slideIndex() === i">
@@ -75,7 +75,7 @@
 </section>
 
 <!-- How it works -->
-<section class="px-4 md:px-8 pt-14 md:pt-20">
+<section id="home-how" class="px-4 md:px-8 pt-14 md:pt-20">
   <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="max-w-xl mb-12">
       <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-3">
@@ -106,7 +106,7 @@
 </div>
 
 <!-- Featured dresses -->
-<section class="px-4 md:px-8">
+<section id="home-featured" class="px-4 md:px-8">
   <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
       <div>
@@ -152,7 +152,7 @@
 </div>
 
 <!-- Featured massages -->
-<section class="px-4 md:px-8">
+<section id="home-massages" class="px-4 md:px-8">
   <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
       <div>
@@ -198,7 +198,7 @@
 </div>
 
 <!-- Occasions -->
-<section class="px-4 md:px-8 pb-16 md:pb-20">
+<section id="home-occasions" class="px-4 md:px-8 pb-16 md:pb-20">
   <div class="max-w-7xl mx-auto glass-section p-6 md:p-10">
     <div class="max-w-xl mb-10">
       <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-2">
@@ -220,3 +220,11 @@
     </div>
   </div>
 </section>
+
+<div
+  class="home-section-label md:hidden"
+  role="status"
+  aria-live="polite"
+>
+  {{ activeSectionLabelKey() | trans }}
+</div>

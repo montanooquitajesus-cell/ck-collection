@@ -1,4 +1,4 @@
-import { Component, DestroyRef, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
+import { Component, computed, DestroyRef, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
@@ -19,10 +19,24 @@ export class HomeComponent implements OnInit {
   readonly featuredMassages = MASSAGES.slice(0, 3);
   readonly carousel = DRESSES;
   readonly slideIndex = signal(0);
+  readonly activeSection = signal('home-hero');
   readonly heroStage = viewChild<ElementRef<HTMLElement>>('heroStage');
 
   private intervalId: number | null = null;
   private readonly slideMs = 6000;
+
+  readonly sections = [
+    { id: 'home-hero', labelKey: 'home.nav.hero' },
+    { id: 'home-how', labelKey: 'home.how.title' },
+    { id: 'home-featured', labelKey: 'home.featured.title' },
+    { id: 'home-massages', labelKey: 'home.massages.title' },
+    { id: 'home-occasions', labelKey: 'home.occasions.title' },
+  ] as const;
+
+  readonly activeSectionLabelKey = computed(() => {
+    const id = this.activeSection();
+    return this.sections.find((section) => section.id === id)?.labelKey ?? 'home.nav.hero';
+  });
 
   readonly howSteps = [
     { titleKey: 'home.how.1.title', descKey: 'home.how.1.desc', icon: 'bi-bag-heart' },
@@ -46,11 +60,34 @@ export class HomeComponent implements OnInit {
   ];
 
   ngOnInit() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
+    queueMicrotask(() => {
+      this.watchSectionVisibility();
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        this.watchHeroVisibility();
+      }
+    });
+  }
+
+  private watchSectionVisibility() {
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            this.activeSection.set(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: '-35% 0px -45% 0px', threshold: 0 }
+    );
+
+    for (const section of this.sections) {
+      const el = document.getElementById(section.id);
+      if (el) observer.observe(el);
     }
 
-    queueMicrotask(() => this.watchHeroVisibility());
+    this.destroyRef.onDestroy(() => observer.disconnect());
   }
 
   private watchHeroVisibility() {
