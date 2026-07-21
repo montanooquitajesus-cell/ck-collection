@@ -19,6 +19,7 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'home.cta.primary': 'Ver colección',
     'home.cta.secondary': 'Ver masajes',
 
+    'home.nav.hero' : 'Inicio',
     'home.how.title': 'Cómo rentar',
     'home.how.sub': 'Un proceso simple, pensado para que solo te preocupes por brillar.',
     'home.how.1.title': 'Elige tu vestido',
@@ -141,6 +142,7 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'home.cta.primary': 'Browse collection',
     'home.cta.secondary': 'Browse massage',
 
+    'home.nav.hero':'Home',
     'home.how.title': 'How renting works',
     'home.how.sub': 'A simple process so you only worry about shining.',
     'home.how.1.title': 'Pick your dress',
@@ -185,6 +187,7 @@ export const TRANSLATIONS: Record<'es' | 'en', TranslationMap> = {
     'massage.detail.includes': 'Includes a brief pre-session check-in and a private appointment space.',
     'massage.detail.book': 'Book on WhatsApp',
     'massage.detail.notFound': 'Service not found.',
+
 
     'how.title': 'How it works',
     'how.sub': 'Renting with CK Collection in Hermosillo is easy, clear, and surprise-free.',
